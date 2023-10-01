@@ -151,6 +151,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("n", "[b", "<cmd>BufferLineCyclePrev<cr>", opts)
 -- keymap("n", "]b", "<cmd>BufferLineCycleNext<cr>", opts)
 
-keymap("n", "<leader>w", "<cmd>w!<CR>", opts)
--- keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
+keymap("n", "<leader>w", "<cmd>w<CR>", opts)
+keymap("n", "<leader>q", "<cmd>q<CR>", opts)
 keymap("n", "<leader>Q", "<cmd>qa<CR>", opts)

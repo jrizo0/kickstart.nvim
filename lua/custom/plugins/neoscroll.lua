@@ -1,6 +1,6 @@
 return {
   "karb94/neoscroll.nvim",
-
+  -- enabled = false,
   config = function()
     require('neoscroll').setup({
       -- Set any options as needed
