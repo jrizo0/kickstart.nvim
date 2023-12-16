@@ -96,6 +96,19 @@ require('lazy').setup({
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
+        vim.keymap.set({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { buffer = bufnr, desc = 'Stage hunk' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { buffer = bufnr, desc = 'Reset hunk' })
+        vim.keymap.set('n', '<leader>hu', gs.undo_stage_hunk,
+          { buffer = bufnr, desc = 'Undo stage hunk' })
+        vim.keymap.set('n', '<leader>hS', gs.stage_buffer,
+          { buffer = bufnr, desc = 'Stage buffer' })
+        vim.keymap.set('n', '<leader>hR', gs.reset_buffer,
+          { buffer = bufnr, desc = 'Reset buffer' })
+        vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame,
+          { buffer = bufnr, desc = 'Toogle current line blame' })
+        vim.keymap.set('n', '<leader>hb', function() gs.blame_line { full = true } end,
+          { buffer = bufnr, desc = 'Full blame line' })
+
         vim.keymap.set({ 'n', 'v' }, ']c', function()
           if vim.wo.diff then return ']c' end
           vim.schedule(function() gs.next_hunk() end)
