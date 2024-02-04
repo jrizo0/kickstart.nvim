@@ -3,11 +3,11 @@ return {
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",   -- not strictly required, but recommended
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    { "<leader>e", "<cmd>Neotree toggle position=right<cr>", desc = "NeoTree" },
     -- {
     --   "<leader>fE",
     --   function()

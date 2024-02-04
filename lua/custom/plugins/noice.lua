@@ -14,7 +14,15 @@ return {
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
   },
+  keys = {
+    { "<leader>nd", "<cmd>Noice dismiss<CR>", desc = "Dismiss noice notification" },
+    { "<leader>nh", "<cmd>Noice history<CR>", desc = "Dismiss noice notification" },
+  },
   config = function()
+    require("notify").setup({
+      timeout = 1,
+      animated = false
+    })
     require("noice").setup({
       routes = {
         {
