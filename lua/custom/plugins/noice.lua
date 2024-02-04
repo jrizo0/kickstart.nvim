@@ -15,8 +15,8 @@ return {
     "rcarriga/nvim-notify",
   },
   keys = {
-    { "<leader>nd", "<cmd>Noice dismiss<CR>", desc = "Dismiss noice notification" },
-    { "<leader>nh", "<cmd>Noice history<CR>", desc = "Dismiss noice notification" },
+    { "<leader>nd", "<cmd>Noice dismiss<CR>", desc = "[N]oice [D]ismiss notification" },
+    { "<leader>nh", "<cmd>Noice history<CR>", desc = "[N]oice [H]istory of notifications" },
   },
   config = function()
     require("notify").setup({
