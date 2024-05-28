@@ -2,6 +2,7 @@
 return {
   {
     'zbirenbaum/copilot.lua',
+    enabled = false,
     config = function()
       local ok, copilot = pcall(require, "copilot")
       if not ok then
