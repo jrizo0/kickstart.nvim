@@ -13,6 +13,16 @@ M.on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 
+  -- Create a command `:LspOrganizeImports` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'LspOrganizeImports', function(_)
+    local params = {
+      command = "_typescript.organizeImports",
+      arguments = { vim.api.nvim_buf_get_name(0) },
+      title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+  end, { desc = 'Organize imports for current buffer TS' })
+
   nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
   nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
   nmap('gi', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
@@ -32,6 +42,10 @@ M.on_attach = function(_, bufnr)
   end, 'Workspace List Folders')
 
   nmap('<leader>v', '<cmd>vsplit | lua vim.lsp.buf.definition()<cr>', 'Goto Definition in Vertical Split')
+
+  -- JR
+  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 end
 
 return M
