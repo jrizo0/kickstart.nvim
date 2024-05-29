@@ -16,9 +16,9 @@ M.on_attach = function(_, bufnr)
   -- Create a command `:LspOrganizeImports` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'LspOrganizeImports', function(_)
     local params = {
-      command = "_typescript.organizeImports",
+      command = '_typescript.organizeImports',
       arguments = { vim.api.nvim_buf_get_name(0) },
-      title = ""
+      title = '',
     }
     vim.lsp.buf.execute_command(params)
   end, { desc = 'Organize imports for current buffer TS' })
