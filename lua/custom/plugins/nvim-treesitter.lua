@@ -36,7 +36,7 @@ return {
           'tsx',
           'typescript',
           'vue',
-          'php',
+          -- 'php',
         },
         incremental_selection = {
           enable = true,
