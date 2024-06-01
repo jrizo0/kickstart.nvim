@@ -1,5 +1,5 @@
 return {
-  { 'airblade/vim-rooter' },
+  -- { 'airblade/vim-rooter' },
   {
     'famiu/bufdelete.nvim',
     event = 'VeryLazy',
@@ -60,13 +60,13 @@ return {
     end,
   },
   { 'folke/neodev.nvim', opts = {} },
-  {
-    'echasnovski/mini.pairs',
-    event = 'VeryLazy',
-    config = function(_, opts)
-      require('mini.pairs').setup(opts)
-    end,
-  },
+  -- {
+  --   'echasnovski/mini.pairs',
+  --   event = 'VeryLazy',
+  --   config = function(_, opts)
+  --     require('mini.pairs').setup(opts)
+  --   end,
+  -- },
   {
     'ggandor/flit.nvim',
     keys = function()
@@ -207,5 +207,15 @@ return {
         },
       }
     end,
+  },
+  {
+    'OlegGulevskyy/better-ts-errors.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    config = {
+      keymaps = {
+        toggle = '<leader>dd', -- default '<leader>dd'
+        go_to_definition = '<leader>dx', -- default '<leader>dx'
+      },
+    },
   },
 }

@@ -4,6 +4,8 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('mason-null-ls').setup {
+        automatic_installation = true,
+        handlers = {},
         -- Each of one of these needs to be added in the configuration for none-ls.nvim
         ensure_installed = {
           -- Diagnostics
@@ -13,7 +15,7 @@ return {
           'stylua',
 
           -- Deprecated LSPs in none-ls plugin
-          'eslint_d',
+          -- 'eslint_d',
           'jq',
         },
       }
@@ -40,9 +42,9 @@ return {
         -- nls.builtins.formatting.pint,
 
         -- Formatters based-off the new none-ls-extras plugin
-        require 'none-ls.code_actions.eslint_d',
-        require 'none-ls.diagnostics.eslint_d',
-        require 'none-ls.formatting.eslint_d',
+        -- require 'none-ls.code_actions.eslint_d',
+        -- require 'none-ls.diagnostics.eslint_d',
+        -- require 'none-ls.formatting.eslint_d',
         require 'none-ls.formatting.jq',
       })
 
