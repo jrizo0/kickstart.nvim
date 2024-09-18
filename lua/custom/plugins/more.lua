@@ -44,10 +44,10 @@ return {
       }
     end,
   },
-  {
-    'windwp/nvim-spectre',
-    event = 'BufRead',
-  },
+  -- {
+  --   'windwp/nvim-spectre',
+  --   event = 'BufRead',
+  -- },
   {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
@@ -207,15 +207,5 @@ return {
         },
       }
     end,
-  },
-  {
-    'OlegGulevskyy/better-ts-errors.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
-    config = {
-      keymaps = {
-        toggle = '<leader>dd', -- default '<leader>dd'
-        go_to_definition = '<leader>dx', -- default '<leader>dx'
-      },
-    },
   },
 }
