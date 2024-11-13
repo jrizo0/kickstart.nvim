@@ -36,7 +36,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',   opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -48,13 +48,30 @@ require('lazy').setup({
         -- delete = { text = '_' },
         -- topdelete = { text = '‾' },
         -- changedelete = { text = '~' },
-        add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-        change = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-        delete = { hl = 'GitSignsDelete', text = '契', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-        topdelete = { hl = 'GitSignsDelete', text = '契', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-        changedelete = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '契' },
+        topdelete = { text = '契' },
+        changedelete = { text = '▎' },
       },
       on_attach = function(bufnr)
+        -- vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitSignsAdd' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsAddLn', { link = 'GitSignsAddLn' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsAddNr', { link = 'GitSignsAddNr' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'GitSignsChange' })
+        -- vim.api.nvim_set_hl(0, 'GitSigns', { link = 'GitSigns' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsLn', { link = 'GitSignsLn' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsNr', { link = 'GitSignsNr' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { link = 'GitSignsChange' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsChangedeleteLn', { link = 'GitSignsChangeLn' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsChangedeleteNr', { link = 'GitSignsChangeNr' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsDelete', { link = 'GitSignsDelete' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsDeleteLn', { link = 'GitSignsDeleteLn' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsDeleteNr', { link = 'GitSignsDeleteNr' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { link = 'GitSignsDelete' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsTopdeleteLn', { link = 'GitSignsDeleteLn' })
+        -- vim.api.nvim_set_hl(0, 'GitSignsTopdeleteNr', { link = 'GitSignsDeleteNr' })
+
         vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
         vim.keymap.set('n', '<leader>gd', require('gitsigns').diffthis, { buffer = bufnr, desc = 'Gitsigns Diff' })
 
@@ -65,8 +82,7 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>hu', gs.undo_stage_hunk, { buffer = bufnr, desc = 'Undo stage hunk' })
         vim.keymap.set('n', '<leader>hS', gs.stage_buffer, { buffer = bufnr, desc = 'Stage buffer' })
         vim.keymap.set('n', '<leader>hR', gs.reset_buffer, { buffer = bufnr, desc = 'Reset buffer' })
-        vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame,
-          { buffer = bufnr, desc = 'Toogle current line blame' })
+        vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame, { buffer = bufnr, desc = 'Toogle current line blame' })
         vim.keymap.set('n', '<leader>hb', function()
           gs.blame_line { full = true }
         end, { buffer = bufnr, desc = 'Full blame line' })
@@ -94,7 +110,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
