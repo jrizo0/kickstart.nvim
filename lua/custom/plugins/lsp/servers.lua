@@ -37,7 +37,8 @@ return {
   vimls = {
     filetypes = { 'vim' },
   },
-  -- tsserver = {},
+  -- ts_ls = {},
+  -- eslint = {},
   yamlls = {
     cmd = { 'yaml-language-server', '--stdio' },
     filetypes = { 'yaml' },

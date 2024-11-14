@@ -1,6 +1,11 @@
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    -- ---@module "ibl"
+    -- ---@type ibl.config
+    -- opts = {},
+
     event = 'BufReadPost', -- Trigger on buffer read post event
     config = function()
       -- Define highlight groups

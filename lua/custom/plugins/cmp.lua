@@ -49,8 +49,12 @@ return {
       Operator = '󰆕',
       TypeParameter = '󰅲',
     }
+
+    luasnip.filetype_extend('javascript', { 'html' })
+    luasnip.filetype_extend('javascriptreact', { 'html' })
+    luasnip.filetype_extend('typescriptreact', { 'html' })
+
     require('luasnip.loaders.from_vscode').lazy_load()
-    luasnip.config.setup {}
 
     cmp.setup {
       snippet = {
