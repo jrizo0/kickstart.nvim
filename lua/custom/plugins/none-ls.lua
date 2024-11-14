@@ -11,7 +11,7 @@ return {
           -- Diagnostics
           'hadolint',
 
-          'prettier',
+          'prettierd',
           'stylua',
 
           -- Deprecated LSPs in none-ls plugin
@@ -40,7 +40,7 @@ return {
         -- debug = true,
         sources = {
           -- diagnostics.actionlint,
-          formatting.prettier.with {
+          formatting.prettierd.with {
             extra_filetypes = { 'toml', 'solidity' },
           },
           formatting.black.with { extra_args = { '--fast' } },
@@ -56,7 +56,7 @@ return {
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
                 -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
                 -- vim.lsp.buf.formatting_sync()
-                vim.lsp.buf.format { async = false, lsp_fallback = true }
+                vim.lsp.buf.format { async = false }
               end,
             })
           end
@@ -76,23 +76,23 @@ return {
         require 'none-ls.formatting.jq',
       })
 
-      opts.on_attach = function(current_client, bufnr)
-        if current_client.supports_method 'textDocument/formatting' then
-          vim.api.nvim_clear_autocmds { buffer = bufnr }
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format {
-                filter = function(client)
-                  -- only use null-ls for formatting instead of lsp server
-                  return client.name == 'null-ls'
-                end,
-                bufnr = bufnr,
-              }
-            end,
-          })
-        end
-      end
+      -- opts.on_attach = function(current_client, bufnr)
+      --   if current_client.supports_method 'textDocument/formatting' then
+      --     vim.api.nvim_clear_autocmds { buffer = bufnr }
+      --     vim.api.nvim_create_autocmd('BufWritePre', {
+      --       buffer = bufnr,
+      --       callback = function()
+      --         vim.lsp.buf.format {
+      --           filter = function(client)
+      --             -- only use null-ls for formatting instead of lsp server
+      --             return client.name == 'null-ls'
+      --           end,
+      --           bufnr = bufnr,
+      --         }
+      --       end,
+      --     })
+      --   end
+      -- end
     end,
   },
 }
