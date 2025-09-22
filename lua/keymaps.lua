@@ -68,8 +68,8 @@ keymap('n', '<leader>y', '"+y', opts)
 keymap('v', '<leader>y', '"+y', opts)
 keymap('v', '<leader>Y', 'gg"+yG', opts)
 -- keymap("i", "<C-BS>", "<C-W>", opts) -- not working
-keymap('n', '<leader>o', 'o<Esc>', opts)
-keymap('n', '<leader>O', 'O<Esc>', opts)
+-- keymap('n', '<leader>o', 'o<Esc>', opts)
+-- keymap('n', '<leader>O', 'O<Esc>', opts)
 
 -- INDENT
 -- keymap("n", "<Tab>", ">>", opts)
@@ -176,3 +176,8 @@ keymap('n', '<leader>Q', '<cmd>qa<CR>', opts)
 -- Typescript tools
 keymap('n', '<leader>oi', ':TSToolsOrganizeImports<CR>', opts)
 keymap('n', '<leader>rf', ':TSToolsRenameFile<CR>', opts)
+
+-- Copy AI reference
+vim.keymap.set({ 'n', 'v' }, '<leader>cc', function()
+  require('custom.copy-ai-ref').copy_ai_ref()
+end, { desc = 'Copy AI reference' })
