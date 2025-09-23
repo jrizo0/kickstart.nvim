@@ -8,7 +8,8 @@ return {
     },
     config = function()
       local lspconfig_defaults = require('lspconfig').util.default_config
-      lspconfig_defaults.capabilities = vim.tbl_deep_extend('force', lspconfig_defaults.capabilities, require('cmp_nvim_lsp').default_capabilities())
+      lspconfig_defaults.capabilities = vim.tbl_deep_extend('force', lspconfig_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities())
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function(event)
@@ -48,7 +49,8 @@ return {
             root_dir = require('lspconfig').util.root_pattern('.git', 'pnpm-workspace.yaml', 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb'),
             typescript = {
               tsserver = {
-                maxTsServerMemory = 12288,
+                -- maxTsServerMemory = 12288,
+                maxTsServerMemory = 6144,
               },
             },
             experimental = {

@@ -7,7 +7,7 @@ return {
       -- Customize or remove this keymap to your liking
       '<leader>f',
       function()
-        require('conform').format()
+        require('conform').format {}
       end,
       mode = '',
       desc = 'Format buffer',
@@ -18,12 +18,12 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'isort', 'black' },
-      typescript = { { 'prettierd', 'prettier' } },
-      typescriptreact = { { 'prettierd', 'prettier' } },
-      javascript = { { 'prettierd', 'prettier' } },
-      javascriptreact = { { 'prettierd', 'prettier' } },
-      ts_ls = { { 'prettierd', 'prettier' } },
+      javascript = { 'prettierd' },
+      typescript = { 'prettierd' },
+      json = { 'prettierd' },
+      yaml = { 'prettierd' },
+      markdown = { 'prettierd' },
+      html = { 'prettierd' },
     },
     -- Set up format-on-save
     format_on_save = { timeout_ms = 3000, lsp_fallback = true },
